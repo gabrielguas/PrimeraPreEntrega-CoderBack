@@ -1,15 +1,15 @@
-import { readFileSync, writeFileSync } from 'fs';
-import  Product  from './Product.js';
-
+const fs = require('fs');
+//test
 class ProductManager {
     constructor(path) {
         this.path = path;
+        this.products = [];
         this.loadProducts();
     }
 
     loadProducts() {
         try {
-            const data = readFileSync(this.path, 'utf8');
+            const data = fs.readFileSync(this.path, 'utf8');
             if (data) {
                 this.products = JSON.parse(data);
             }
@@ -20,7 +20,7 @@ class ProductManager {
 
     saveProducts() {
         const data = JSON.stringify(this.products, null, 2);
-        writeFileSync(this.path, data);
+        fs.writeFileSync(this.path, data);
     }
 
     addProduct(title, description, price, thumbnail, code, stock) {
@@ -81,4 +81,41 @@ class ProductManager {
     }
 }
 
-export default ProductManager;
+class Product {
+    constructor(title, description, price, thumbnail, code, stock, ID) {
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.thumbnail = thumbnail;
+        this.code = code;
+        this.stock = stock;
+        this.ID = ID;
+    }
+}
+
+const productManager = new ProductManager('productos.json');
+
+
+productManager.addProduct("Producto 1", "Descripción del producto 1", 100, "imagen1.jpg", "123ABC", 10);
+productManager.addProduct("Producto 2", "Descripción del producto 2", 150, "imagen2.jpg", "456DEF", 15);
+productManager.addProduct("Producto 3", "Descripción del producto 3", 120, "imagen3.jpg", "789XYZ", 12);
+
+console.log("Producto consultado por ID:");
+console.log(productManager.getProductByID(1));
+console.log(productManager.getProductByID(2));
+console.log(productManager.getProductByID(3));
+
+const productoActualizado = {
+    title: "Producto Actualizado",
+    description: "Descripción actualizada",
+    price: 120,
+    thumbnail: "imagen1_actualizada.jpg",
+    code: "123ABC",
+    stock: 12
+};
+productManager.updateProduct(1, productoActualizado);
+
+productManager.deleteProduct(2);
+
+console.log("Lista de productos actualizada:");
+console.log(productManager.getProducts());
