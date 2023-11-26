@@ -1,68 +1,39 @@
 [
     {
-        "ID": 1,
-        "title": "Producto 1",
-        "description": "Descripción 1",
-        "price": 19.99,
-        "thumbnail": "thumbnail1.jpg",
-        "code": "ABC123",
-        "stock": 50,
-        "category": "Category1",
-        "thumbnails": [
-            "thumbnail1.jpg"
-        ]
+        "title": "miTituloActualizado",
+        "description": "miDescriptionActualizado",
+        "price": 100,
+        "code": "miCodigoActualizado",
+        "stock": 200,
+        "category": "miCategoriaActualizado",
+        "ID": 2
     },
     {
-        "ID": 2,
-        "title": "Producto 2",
-        "description": "Descripción 2",
-        "price": 29.99,
-        "thumbnail": "thumbnail2.jpg",
-        "code": "DEF456",
-        "stock": 30,
-        "category": "Category2",
-        "thumbnails": [
-            "thumbnail2.jpg"
-        ]
+        "title": "miTituloActualizado",
+        "description": "miDescriptionActualizado",
+        "price": 100,
+        "code": "miCodigoActualizado",
+        "stock": 200,
+        "category": "miCategoriaActualizado",
+        "ID": 3
     },
     {
-        "ID": 3,
-        "title": "Producto 3",
-        "description": "Descripción 3",
-        "price": 39.99,
-        "thumbnail": "thumbnail3.jpg",
-        "code": "GHI789",
-        "stock": 20,
-        "category": "Category3",
-        "thumbnails": [
-            "thumbnail3.jpg"
-        ]
+        "title": "miTituloActualizado",
+        "description": "miDescriptionActualizado",
+        "price": 100,
+        "code": "miCodigoActualizado",
+        "stock": 200,
+        "category": "miCategoriaActualizado",
+        "ID": 4
     },
     {
-        "ID": 4,
-        "title": "Producto 4",
-        "description": "Descripción 4",
-        "price": 49.99,
-        "thumbnail": "thumbnail4.jpg",
-        "code": "JKL012",
-        "stock": 10,
-        "category": "Category1",
-        "thumbnails": [
-            "thumbnail4.jpg"
-        ]
-    },
-    {
-        "ID": 5,
-        "title": "Producto 5",
-        "description": "Descripción 5",
-        "price": 59.99,
-        "thumbnail": "thumbnail5.jpg",
-        "code": "MNO345",
-        "stock": 5,
-        "category": "Category2",
-        "thumbnails": [
-            "thumbnail5.jpg"
-        ]
+        "title": "miTituloActualizado",
+        "description": "miDescriptionActualizado",
+        "price": 100,
+        "code": "miCodigoActualizado",
+        "stock": 200,
+        "category": "miCategoriaActualizado",
+        "ID": 5
     },
     {
         "ID": 6,

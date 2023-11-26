@@ -72,7 +72,7 @@ class ProductManager {
     }
 
     updateProduct(ID, updatedProduct) {
-        const index = this.products.findIndex(product => product.ID === ID);
+        const index = this.products.findIndex(product => product.ID == ID);
         if (index !== -1) {
             updatedProduct.ID = this.products[index].ID;
             this.products[index] = updatedProduct;
@@ -84,7 +84,7 @@ class ProductManager {
     }
 
     deleteProduct(ID) {
-        const index = this.products.findIndex(product => product.ID === ID);
+        const index = this.products.findIndex(product => product.ID == ID);
         if (index !== -1) {
             this.products.splice(index, 1);
             this.saveProducts();

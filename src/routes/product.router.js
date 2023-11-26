@@ -29,7 +29,9 @@ router.get("/:ID", getProductByID_middleware, (req, res) => {
   const { product } = req;
   res.json({ product });
 });
-//revisar middlware
+
+
+// Agregar producto || revisar middlware
 router.post("/", (req, res) => {
   console.log("Cuerpo de la solicitud:", req.body);
 
@@ -44,7 +46,27 @@ router.post("/", (req, res) => {
   }
 });
 
+// Actualizar producto
+router.put("/:ID", (req, res) => {
+  console.log("Cuerpo de la solicitud:", req.body);
+  const { ID } = req.params;
+  const data = req.body;
 
+  pm.updateProduct(ID, data);
+  res.json({
+    mensaje: "Se ha actuliazdo el producto"
+  })
+});
 
+// Eliminar producto
+router.delete("/:ID", (req, res) => {
+  console.log("Cuerpo de la solicitud:", req.body);
+  const { ID } = req.params;
+
+  pm.deleteProduct(ID);
+  res.json({
+    mensaje: "Se ha eliminado el producto"
+  })
+});
 
 export default router;
