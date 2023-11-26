@@ -3,6 +3,12 @@ import productRouter from './routes/product.router.js'
 
 const app = express();
 
+// Middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+
 //Main
 app.get("/", (req, res) => {
     res.json({
@@ -11,9 +17,7 @@ app.get("/", (req, res) => {
 });
 
 
-// Middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 
 
 // Routes

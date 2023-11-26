@@ -1,12 +1,14 @@
 class Product {
-    constructor(title, description, price, thumbnail, code, stock, ID) {
+    constructor(ID, title, description, code, price, status = true, stock, category, thumbnails = {}) {
+        this.ID = ID;
         this.title = title;
         this.description = description;
-        this.price = price;
-        this.thumbnail = thumbnail;
         this.code = code;
+        this.price = price;
+        this.status = status;
         this.stock = stock;
-        this.ID = ID;
+        this.category = category;
+        this.thumbnails = thumbnails;
     }
 }
 
