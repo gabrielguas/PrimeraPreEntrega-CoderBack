@@ -22,5 +22,6 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/api/products", productRouter);
+//agregar route cart
 
 app.listen(8080, () => console.log("Server listening on port 8080"));

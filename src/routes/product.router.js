@@ -29,18 +29,18 @@ router.get("/:ID", getProductByID_middleware, (req, res) => {
   const { product } = req;
   res.json({ product });
 });
-
+//revisar middlware
 router.post("/", (req, res) => {
   console.log("Cuerpo de la solicitud:", req.body);
 
   const { title, description, price, code, stock, category, thumbnails } = req.body;
 
   try {
-      pm.addProduct(title, description, price, code, stock, category, thumbnails);
-      res.status(201).json({ message: "Producto agregado con éxito." });
+    pm.addProduct(title, description, price, code, stock, category, thumbnails);
+    res.status(201).json({ message: "Producto agregado con éxito." });
   } catch (error) {
-      console.error("Error al agregar el producto:", error);
-      res.status(400).json({ error: "Error al agregar el producto." });
+    console.error("Error al agregar el producto:", error);
+    res.status(400).json({ error: "Error al agregar el producto." });
   }
 });
 

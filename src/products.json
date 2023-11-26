@@ -128,16 +128,5 @@
         "thumbnails": [
             "thumbnail10.jpg"
         ]
-    },
-    {
-        "ID": 11,
-        "title": "miTitulo",
-        "description": "miDescription",
-        "code": "miCodigo",
-        "price": 100,
-        "status": true,
-        "stock": 200,
-        "category": "miCategoria",
-        "thumbnails": []
     }
 ]
