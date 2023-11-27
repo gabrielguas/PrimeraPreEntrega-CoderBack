@@ -1,5 +1,6 @@
 import express from "express";
 import productRouter from './routes/product.router.js'
+import cartsRouter from './routes/carts.router.js'
 
 const app = express();
 
@@ -17,11 +18,8 @@ app.get("/", (req, res) => {
 });
 
 
-
-
-
 // Routes
 app.use("/api/products", productRouter);
-//agregar route cart
+app.use("/api/carts", cartsRouter);
 
 app.listen(8080, () => console.log("Server listening on port 8080"));

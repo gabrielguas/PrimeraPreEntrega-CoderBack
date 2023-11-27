@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 import Product from './Product.js';
-//optimizar
+//optimizar (pasar al estilo del cart)
 class ProductManager {
     constructor(path) {
         this.path = path;
