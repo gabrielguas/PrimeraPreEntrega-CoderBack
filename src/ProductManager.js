@@ -31,13 +31,12 @@ class ProductManager {
                 const newProduct = new Product(newID, title, description, code, price, true, stock, category, productThumbnails);
                 this.products.push(newProduct);
                 this.saveProducts();
-                console.log("Producto agregado correctamente.");
-                console.log(newID);
+                return { mensaje: "El producto se agreg+o correctamente.." };
             } else {
-                console.log("Ya existe un producto con el mismo código.");
+                return { mensaje: "Ya existe producto con ese codigo." };
             }
         } else {
-            console.log("Todos los campos obligatorios excepto el thumbnail.");
+            return { mensaje: "Todos los campos son obligatorios (excepto thumbnails)." };
         }
     }
 
@@ -77,9 +76,9 @@ class ProductManager {
             updatedProduct.ID = this.products[index].ID;
             this.products[index] = updatedProduct;
             this.saveProducts();
-            console.log("Producto actualizado correctamente.");
+            return { mensaje: "Se actualizzó el producto correctamente." };
         } else {
-            console.log("No se encontró el producto con el ID proporcionado.");
+            return { mensaje: "No se encontró el producto con el ID proporcionado." };
         }
     }
 
@@ -88,9 +87,9 @@ class ProductManager {
         if (index !== -1) {
             this.products.splice(index, 1);
             this.saveProducts();
-            console.log("Producto eliminado correctamente.");
+            return { mensaje: "Producto eliminado correctamente." };
         } else {
-            console.log("No se encontró el producto con el ID proporcionado.");
+            return { mensaje: "No se encontró el producto con el ID proporcionado." };
         }
     }
 }

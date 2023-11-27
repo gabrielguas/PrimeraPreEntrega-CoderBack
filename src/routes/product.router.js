@@ -31,42 +31,47 @@ router.get("/:ID", getProductByID_middleware, (req, res) => {
 });
 
 
-// Agregar producto || revisar middlware
-router.post("/", (req, res) => {
-  console.log("Cuerpo de la solicitud:", req.body);
-
+// Middleware para agregar producto
+const agregarProductoMiddleware = (req, res, next) => {
   const { title, description, price, code, stock, category, thumbnails } = req.body;
+  const resultado = pm.addProduct(title, description, price, code, stock, category, thumbnails);
+  res.locals.resultado = resultado;
+  next();
+};
 
-  try {
-    pm.addProduct(title, description, price, code, stock, category, thumbnails);
-    res.status(201).json({ message: "Producto agregado con éxito." });
-  } catch (error) {
-    console.error("Error al agregar el producto:", error);
-    res.status(400).json({ error: "Error al agregar el producto." });
-  }
+router.post("/", agregarProductoMiddleware, (req, res) => {
+  const resultado = res.locals.resultado;
+  res.status(201).json(resultado);
 });
 
-// Actualizar producto
-router.put("/:ID", (req, res) => {
-  console.log("Cuerpo de la solicitud:", req.body);
+
+// Middleware para actualizar producto
+const actualizarProductoMiddleware = (req, res, next) => {
   const { ID } = req.params;
   const data = req.body;
 
-  pm.updateProduct(ID, data);
-  res.json({
-    mensaje: "Se ha actuliazdo el producto"
-  })
+  const resultado = pm.updateProduct(ID, data);
+  res.locals.resultado = resultado;
+
+  next();
+};
+
+router.put("/:ID", actualizarProductoMiddleware, (req, res) => {
+  const resultado = res.locals.resultado;
+  res.json(resultado);
 });
 
-// Eliminar producto
-router.delete("/:ID", (req, res) => {
-  console.log("Cuerpo de la solicitud:", req.body);
+// Middleware para eliminar producto
+const eliminarProductoMiddleware = (req, res, next) => {
   const { ID } = req.params;
+  const resultado = pm.deleteProduct(ID);
+  res.locals.resultado = resultado;
+  next();
+};
 
-  pm.deleteProduct(ID);
-  res.json({
-    mensaje: "Se ha eliminado el producto"
-  })
+router.delete("/:ID", eliminarProductoMiddleware, (req, res) => {
+  const resultado = res.locals.resultado;
+  res.json(resultado);
 });
 
 export default router;
